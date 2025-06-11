@@ -1,0 +1,30 @@
+#Testing macro
+macro (add_test_executable_with_lib _name libs)
+	add_executable(test_${_name} "${_name}.cpp")
+	target_link_libraries(test_${_name} ${EMP-OT_LIBRARIES} mcl libelgl ${libs})
+endmacro()
+
+macro (add_test_case _name)
+	add_test_executable_with_lib(${_name} "")
+  	add_test(NAME ${_name} COMMAND "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/test_${_name}" WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}/")
+endmacro()
+
+macro (add_test_case_with_runarg _name _arg)
+	add_test_executable_with_lib(${_name} "")
+	add_test(NAME ${_name} COMMAND "./run" "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/test_${_name}" "${_arg}" WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}/")
+endmacro()
+
+macro (add_test_case_with_run _name)
+  add_test_case_with_runarg(${_name} "")
+endmacro()
+
+# add_test_case_with_run(Proof_Exp-example)
+# add_test_case_with_run(Schnorrproof-example)
+# add_test_case_with_run(proof_commit-example)
+# add_test_case_with_run(ELGL_FFT-example)
+# add_test_case_with_run(elgl)
+# add_test_case_with_run(Point-test)
+add_test_case_with_run(Rotate_proof-example)
+# add_test_case_with_run(proof-example)
+# add_test_case_with_run(Range-example)
+# add_test_case_with_run(FFT_Paral)

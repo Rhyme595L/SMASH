@@ -1,0 +1,11 @@
+[submodule "emp-tool"]
+	path = emp-tool
+	url = https://github.com/emp-toolkit/emp-tool.git
+
+[submodule "emp-ot"]
+	path = emp-ot
+	url = https://github.com/emp-toolkit/emp-ot.git
+
+[submodule "external/mcl"]
+	path = external/mcl
+	url = https://github.com/herumi/mcl.git
